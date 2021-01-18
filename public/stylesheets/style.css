@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  padding: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+p {
+  font-size: 14px;
+}
+
+h2 {
+  font-size: 50px;
+}
+
+.btn {
+  width: 200px;
+  height: 30px;
+  font-size: 18px;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+header {
+  padding: 0 !important;
+  margin: 0 !important;
+  border-bottom: 1px solid gray;
+}
+
+.content p:nth-child(1) {
+  font-size: 16px;
+  margin-top: 50px;
+}
+
+.wrap {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.start-btn {
+  margin-top: 120px;
+}
