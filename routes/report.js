@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
+let fs = require('fs');
 
 router.post('/', function(req, res, next) {
-  console.log(req, res);
-  res.send("datas save");
+  fs.writeFileSync("../report", req.body);
+  res.send();
 });
 
 module.exports = router;
