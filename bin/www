@@ -12,9 +12,10 @@ const fs = require('fs');
 
 const options_ssl = {
   key: fs.readFileSync('key.pem'),
-  cert: fs.readFileSync('cert.pem')
-};
+  cert: fs.readFileSync('cert.pem'),
 
+};
+console.log(process.env['NODE_TLS_REJECT_UNAUTHORIZED']);
 /**
  * Get port from environment and store in Express.
  */

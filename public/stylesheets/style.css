@@ -32,7 +32,7 @@ header {
   border-bottom: 1px solid gray;
 }
 
-.content p:nth-child(1) {
+.content .welcome {
   font-size: 16px;
   margin-top: 50px;
 }
@@ -44,4 +44,9 @@ header {
 
 .start-btn {
   margin-top: 120px;
+}
+
+.testing {
+  border: 1px solid black;
+  width: 160px;
 }

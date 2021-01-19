@@ -5,41 +5,17 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body> 
-    {{{body}}}
+    <header>
+    <div class="wrap">
+        <h2>   
+            Demo test with proctoring
+        </h2>
+    </div>
+</header>
+    <div class="content">
+      <div class="wrap">
+        {{{body}}}
+      </div>
+    </div>
   </body>
-      <script src="https://demo.proctoring.online/sdk/supervisor.js"></script>
-    <script>
-      
-      // create Supervisor instance
-      //'\{\{ proctoring_server \}\}'
-      var supervisor = new Supervisor({ url: 'https://demo.proctoring.online' });
-      // log in and initialize the session
-      supervisor
-        .init({
-          // set your provider name
-          //'\{\{ jwt_provider \}\}'
-          provider: 'jwt',
-          // get JWT string from your server
-          token: fetch('https://localhost:3000/login', {
-            method: 'POST'
-          }).then(function(response) {
-            if (response.ok) {
-              return response.text();
-            }
-            else throw Error('Failed to get JWT');
-          })
-        })
-        .then(function() {
-          // start the session only after initialization
-          return supervisor.start();
-        })
-        .catch(function(err) {
-          // show alert with an error
-          alert(err.toString());
-          // redirect to home page
-          location.href = '/';
-        });
-      // stop the session after testing in e-learning system is over
-      // supervisor.stop();
-    </script>
 </html>

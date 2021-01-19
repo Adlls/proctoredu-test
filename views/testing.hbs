@@ -1,0 +1,42 @@
+  
+    <p>Please select an option</p>
+    <div class="testing">
+                <p><input name="option" type="radio" value="1" checked>Option 1</p>
+                <p><input name="option" type="radio" value="2">Option 2</p>
+                <p><input name="option" type="radio" value="3">Option 3</p>
+                <p><input name="option" type="radio" value="4">Option 4</p>
+    </div>
+    <button class="btn start-btn" onclick="stopSession()">Finish</button>
+
+    <script src="https://demo.proctoring.online/sdk/supervisor.js"></script>
+    <script>
+        // create Supervisor instance
+        var supervisor = new Supervisor({ url: 'https://demo.proctoring.online' });
+        // log in and initialize the session
+        supervisor
+                .init({
+                    // set your provider name
+                    provider: 'jwt',
+                    // get JWT string from your server
+                    token: fetch('https://localhost:3000/login').then(function(response) {
+                        if (response.ok) return response.text();
+                        else throw Error('Failed to get JWT');
+                    })
+                })
+                .then(function() {
+                    // start the session only after initialization
+                    return supervisor.start();
+                })
+                .catch(function(err) {
+                    // show alert with an error
+                    alert(err.toString());
+                    // redirect to home page
+                    location.href = '/';
+                });
+        function stopSession() {
+            //stop the session after testing in e-learning system is over
+              supervisor.stop();
+              supervisor.logout();
+              location.href = '/complete';
+        }
+    </script>
